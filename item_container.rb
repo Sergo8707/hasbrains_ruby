@@ -1,9 +1,16 @@
 module ItemContainer
 
-  module Manager # содержить все методы модифицирующие наш обэкт
+  module ClassMethods
+    def min_price
+      100 #connect to the internet and receive currency price
+    end
+  end
 
+  module InstanceMethods
     def add_item(item)
-      @items.push item
+      unless item.price < self.class.min_price
+        @items.push item
+      end
     end
 
     def remove_item
@@ -18,15 +25,16 @@ module ItemContainer
       @items.delete_if { |i| i.price.nil? }
     end
 
-  end
-
-  module Info #методы выводящие информацюю о товарах в нашем обэкте
-
     def count_valid_items
       @items.count { |i| i.price }
     end
-
   end
 
+  def self.included(base)
+    base.extend ClassMethods
+    base.class_eval do
+      include InstanceMethods
+    end
+  end
 
 end
