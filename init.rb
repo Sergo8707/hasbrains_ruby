@@ -4,15 +4,9 @@ require_relative "cart"
 require_relative "item"
 require_relative "virtual_item"
 require_relative "real_item"
-# 26
+# 27
+@items =[]
 
-item1 =  VirtualItem.new({:price => 101, :weight => 100, :name => "Car"})
-item2 =  RealItem.new({:weight => 100, :price => 101, :name => "Car"})
-item3 =  RealItem.new({:weight => 100, :price => 10, :name => "Dishwasher"})
-
-cart = Cart.new
-cart.add_item item1
-cart.add_item item2
-cart.add_item item3
-
-puts cart.items.size
+@items << VirtualItem.new({:price => 101, :weight => 100, :name => "car"})
+@items << RealItem.new({:weight => 100, :price => 101, :name => "kettle"})
+@items << RealItem.new({:weight => 100, :price => 101, :name => "dishwasher"})
