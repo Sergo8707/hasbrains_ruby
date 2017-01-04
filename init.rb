@@ -4,7 +4,8 @@ require_relative "cart"
 require_relative "item"
 require_relative "virtual_item"
 require_relative "real_item"
-# 28
+require_relative "string"
+# 29
 @items =[]
 
 @items << RealItem.new({:price => 101, :weight => 100, :name => "car"})
