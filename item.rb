@@ -4,7 +4,7 @@ class Item
 
   def self.discount
     if Time.now.month == 4
-      return @@discount += 0.1
+      return @@discount + 0.1
     else
       return @@discount
     end

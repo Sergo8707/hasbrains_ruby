@@ -3,8 +3,7 @@ class Cart
   attr_reader :items
 
   include ItemContainer
-  class ItemNotSupported < StandardError;
-  end
+  class ItemNotSupported < StandardError; end
 
   UNSUPPORTED_ITEMS = [AntiqueItem, VirtualItem]
 
@@ -17,7 +16,7 @@ class Cart
     File.open("#{@owner}_cart.txt", "w") do |f|
       @items.each do |i|
         raise ItemNotSupported if UNSUPPORTED_ITEMS.include?(i.class)
-        f.puts i # car:100:50
+        f.puts i
       end
     end
   end
@@ -27,7 +26,7 @@ class Cart
     @items.uniq!
   rescue Errno::ENOENT
     File.open("#{@owner}_cart.txt", "w") {}
-    puts "file #{@owner}_cart.txt"
+    puts "file #{@owner}_cart.txt created"
   end
 end
 
