@@ -6,12 +6,14 @@ require_relative "real_item"
 require_relative "antique_item"
 require_relative "cart"
 require_relative "order"
-# 34
+# 35
 @items =[]
 
-@items << AntiqueItem.new({:price => 101, :weight => 100, :name => "car"})
-@items << RealItem.new({:weight => 100, :price => 101, :name => "kettle"})
-@items << RealItem.new({:weight => 100, :price => 101, :name => "dishwasher"})
+@items << AntiqueItem.new("car", price: 101, weight: 100)
+@items << RealItem.new(weight: 100, price: 101, name: "kettle")
+@items << RealItem.new(weight: 100, price: 101, name: "dishwasher")
+
+@items.each { |i| puts i.name }
 
 cart = Cart.new("sergiy")
 cart.add_item RealItem.new({:weight => 100, :price => 101, :name => "car"})
