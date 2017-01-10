@@ -11,13 +11,14 @@ StoreApplication.config do |app|
   end
 
 end
-# 39
+# 40
 
-p StoreApplication.environment
-p StoreApplication.name
+unless StoreApplication.frozen?
+  StoreApplication.name = "My name"
+end
+
+#StoreApplication::Admin.email = "new_mail@mail.ru"
 p StoreApplication::Admin.email
-p StoreApplication::Admin.login
-
 
 @items =[]
 
