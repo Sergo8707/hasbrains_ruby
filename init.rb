@@ -5,13 +5,13 @@ StoreApplication.config do |app|
   app.environment = :production
 
   app.admin do |admin|
-    admin.email = "admin@mystore.com"
+    admin.email = "example@gmail.com"
     admin.login = "admin"
     admin.send_info_emails_on :mondays
   end
 
 end
-# 38
+# 39
 
 p StoreApplication.environment
 p StoreApplication.name
@@ -32,5 +32,6 @@ cart.add_item RealItem.new({:weight => 100, :price => 101, :name => "car"})
 cart.add_item RealItem.new({:weight => 100, :price => 150, :name => "car"})
 cart.add_item RealItem.new({:weight => 100, :price => 120, :name => "kettle"})
 
-method = "all_cars"
-#p cart.send(method)
+order = Order.new
+@items.each { |i| order.add_item(i)}
+order.place

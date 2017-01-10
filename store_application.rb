@@ -5,6 +5,7 @@ class StoreApplication
     def config
       unless @instance
         yield(self)
+        require 'pony'
         puts "loading files..."
         require_relative "string"
         require_relative "item_container"
