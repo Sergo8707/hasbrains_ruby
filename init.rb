@@ -1,4 +1,4 @@
-require_relative "store_application"
+require_relative "app/store_application"
 StoreApplication.config do |app|
 
   app.name = "My Store"
@@ -11,7 +11,7 @@ StoreApplication.config do |app|
   end
 
 end
-# 41
+# 42
 
 @items =[]
 @items << AntiqueItem.new("car", price: 101, weight: 100)
