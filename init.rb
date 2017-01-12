@@ -11,9 +11,9 @@ StoreApplication.config do |app|
   end
 
 end
-# 47
+# 49
 
-@items =[]
+@items = []
 @items << AntiqueItem.new("car", price: 101, weight: 100)
 @items << RealItem.new(weight: 100, price: 101, name: "kettle")
 @items << RealItem.new(weight: 100, price: 101, name: "dishwasher")
