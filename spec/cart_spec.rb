@@ -17,15 +17,11 @@ describe Cart do
       cart.items.should include(item1, item2)
     end
 
-    it "removes items from itself" do
-
-    end
+    it "removes items from itself"
   end
 
   it "counts items in itself"
-
   it "places order using all the items that were added into the cart"
-
   it "clears itself off the items after an order is placed"
 
 end
