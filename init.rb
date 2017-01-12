@@ -11,7 +11,7 @@ StoreApplication.config do |app|
   end
 
 end
-# 44
+# 45
 
 @items =[]
 @items << AntiqueItem.new("car", price: 101, weight: 100)
