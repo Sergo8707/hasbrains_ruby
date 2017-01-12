@@ -1,13 +1,11 @@
 module ItemContainer
-
   module ClassMethods
     def min_price
-      100 #connect to the internet and receive currency price
+      100 # connect to the internet and receive currency price
     end
   end
 
   module InstanceMethods
-
     attr_reader :items
 
     def method_missing(method_name)
@@ -19,9 +17,7 @@ module ItemContainer
     end
 
     def add_item(item)
-      unless item.price < self.class.min_price
-        @items.push item
-      end
+      @items.push item unless item.price < self.class.min_price
     end
 
     def remove_item
@@ -29,7 +25,7 @@ module ItemContainer
     end
 
     def validate
-      @items.each { |i| puts "Item has no price" if i.price.nil? }
+      @items.each { |i| puts 'Item has no price' if i.price.nil? }
     end
 
     def delete_invalid_items
@@ -37,15 +33,14 @@ module ItemContainer
     end
 
     def count_valid_items
-      @items.count { |i| i.price }
+      @items.count(&:price)
     end
 
     private
 
     def show_all_items_with_name(n)
-      @items.map { |i| i if n == i.name }.delete_if { |i| i.nil? }
+      @items.map { |i| i if n == i.name }.delete_if(&:nil?)
     end
-
   end
 
   def self.included(base)
@@ -54,5 +49,4 @@ module ItemContainer
       include InstanceMethods
     end
   end
-
 end

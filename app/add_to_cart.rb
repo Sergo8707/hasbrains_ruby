@@ -1,4 +1,4 @@
-require_relative "init"
+require_relative 'init'
 
 cart = Cart.new(ARGV.delete_at(0))
 

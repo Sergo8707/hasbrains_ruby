@@ -1,8 +1,7 @@
 class RealItem < Item
-
   attr_reader :weight
 
-  show_info_about :weight, lambda { |attr| attr > 5 }
+  show_info_about :weight, ->(attr) { attr > 5 }
 
   def initialize(options)
     @weight = options[:weight]
@@ -17,7 +16,6 @@ class RealItem < Item
   end
 
   def to_s
-    super + ":#{self.weight}"
+    super + ":#{weight}"
   end
-
 end
